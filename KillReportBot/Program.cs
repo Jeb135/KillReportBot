@@ -1,3 +1,5 @@
+using KillReportBot.KillReports;
+using KillReportBot.WHCoin;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -16,7 +18,8 @@ namespace KillReportBot
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.Configure<ServiceConfiguration>(hostContext.Configuration.GetSection(ServiceConfiguration.Name));
-                    services.AddHostedService<Worker>();
+                    //services.AddHostedService<KillReportWorker>();
+                    services.AddHostedService<WHCoinWorker>();
                 });
         }
     }

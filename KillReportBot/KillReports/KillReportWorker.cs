@@ -8,17 +8,17 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace KillReportBot
+namespace KillReportBot.KillReports
 {
-    internal class Worker : BackgroundService
+    internal class KillReportWorker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<KillReportWorker> _logger;
         private DiscordSocketClient _client;
         private CommandService _commandService;
 
         private ServiceConfiguration _configuration;
         private string _authToken;
-        public Worker(ILogger<Worker> logger, IOptions<ServiceConfiguration> config)
+        public KillReportWorker(ILogger<KillReportWorker> logger, IOptions<ServiceConfiguration> config)
         {
             _logger = logger;
             _configuration = config.Value;
